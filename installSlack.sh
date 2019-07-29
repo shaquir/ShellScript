@@ -2,12 +2,13 @@
 ##  Created by Shaquir Tannis on 6/12/19
 ##Inspiration of scripts from owen.pragel and anverhousseini from JamfNation
 #### Edited 7/19/19 to address Slack releases.json removal
+#### Edited 7/29/19 - Add "usr/bin/curl -sL" to direct international users to US Slack site (Credit to @iancd)
 
 #To kill Slack, Input "kill" in Parameter 4 
 killSlack="$4"
 
 #Find latest Slack version / Pulls Version from Slack for Mac download page
-currentSlackVersion=$(/usr/bin/curl -s 'https://slack.com/downloads/mac' | grep -o "Version [0-9]\.[0-9]\.[0-9]" | cut -d' ' -f2 )
+currentSlackVersion=$(/usr/bin/curl -sL 'https://slack.com/downloads/mac' | grep -o "Version [0-9]\.[0-9]\.[0-9]" | cut -d' ' -f2 )
 
 #Install Slack function
 install_slack() {
