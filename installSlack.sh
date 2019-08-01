@@ -1,14 +1,15 @@
 #!/bin/bash
 ##  Created by Shaquir Tannis on 6/12/19
-##Inspiration of scripts from owen.pragel and anverhousseini from JamfNation
+##  Great help from Ian Davidson @iancd addressing Slack's version changes
+##  Thanks to owen.pragel and anverhousseini from JamfNation
 #### Edited 7/19/19 to address Slack releases.json removal
-#### Edited 7/29/19 - Add "usr/bin/curl -sL" to direct international users to US Slack site (Credit to @iancd)
+#### Edited 8/1/19 to address copy issues and point to Slack's RSS feed for latest version
 
 #To kill Slack, Input "kill" in Parameter 4 
 killSlack="$4"
 
 #Find latest Slack version / Pulls Version from Slack for Mac download page
-currentSlackVersion=$(/usr/bin/curl -sL 'https://slack.com/downloads/mac' | grep -o "Version [0-9]\.[0-9]\.[0-9]" | cut -d' ' -f2 )
+currentSlackVersion=$(/usr/bin/curl -sL 'https://slack.com/release-notes/mac/rss' | grep -o "Slack-[0-9]\.[0-9]\.[0-9]"  | cut -c 7-11 | head -n 1)
 
 #Install Slack function
 install_slack() {
@@ -50,7 +51,7 @@ fi
 	rm -rf /Applications/Slack.app
 
 #Copy the update app into applications folder
-	sudo cp -R /Volumes/Slack*/Slack.app /Applications
+	ditto -rsrc /Volumes/Slack*/Slack.app /Applications/Slack.app
 
 #Unmount and eject dmg
 	mountName=$(diskutil list | grep Slack | awk '{ print $3 }')
