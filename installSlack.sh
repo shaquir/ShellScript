@@ -51,7 +51,7 @@ fi
 	rm -rf /Applications/Slack.app
 
 #Copy the update app into applications folder
-	sudo cp -R /Volumes/Slack*/Slack.app /Applications
+	ditto -rsrc /Volumes/Slack*/Slack.app /Applications/Slack.app
 
 #Unmount and eject dmg
 	mountName=$(diskutil list | grep Slack | awk '{ print $3 }')
