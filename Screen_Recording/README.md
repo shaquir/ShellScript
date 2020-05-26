@@ -2,13 +2,12 @@ Background: As many of you may be aware, the Screen Recording option can only be
 
 Solution: I created this Script to check if an Application's Screen Recording permission has been set to enabled in the TCC Security and Privacy.  If the TCC option is disabled, it will open System Preferences > Security & Privacy > Screen Recording and prompt the user to enable the App
 
+
 Jamf Workflow
 
 Extension Attribute
 Name: Disabled System TCC Values
-
-Script:
-Run this Extension Attribute to report all the disabled System TCC values:
+Script: https://github.com/shaquir/ShellScript/blob/master/Screen_Recording/Disabled_System_TCC_Values_EA.sh
 
 
 Smart Group:
@@ -30,4 +29,4 @@ Trigger: Check-in
 
 Scope: AppName ScreenSharing Disabled
 
-Script: 
+Script: https://github.com/shaquir/ShellScript/blob/master/Screen_Recording/Prompt_User_to_Enable_ScreenRecording_TCC.sh
