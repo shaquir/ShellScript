@@ -15,7 +15,7 @@ appImage="/Applications/Slack.app/Contents/Resources/electron.icns"
 #Dialog to send user
 initialMessage="To properly support your machine, we need you to allow the Screen Recording option for $appName"
 #Second message screen for user to allow
-secondMessage="In the Security and Pricacy window, Please allow $appName by adding a checkmark to the left of it"
+secondMessage="In the Security and Privacy window, please allow $appName by adding a checkmark to the left of it"
 
 
 function promptUser()
